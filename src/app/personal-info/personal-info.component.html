@@ -1,0 +1,35 @@
+<h4 class="ui dividing header">Personal Information</h4>
+<form [formGroup]="personalInfoForm">
+    <div class="field">
+        <label>Name</label>
+        <div class="two fields">
+          <div class="field">
+            <input type="text" [ngStyle]="{'border': fname.invalid && mainFormStatus.submitted ? 'solid 2px red' : ''}"
+              formControlName="fname" placeholder="Enter first name">
+              <div *ngIf="fname.errors && fname.errors.required && mainFormStatus.submitted">
+                This field is required
+              </div>
+          
+              <div *ngIf="fname.errors && fname.errors.minlength && mainFormStatus.submitted">
+                This field should have a minimum of 5 characters
+              </div>
+          </div>
+          
+          <div class="field">
+            <input type="text" [ngStyle]="{'border': lname.invalid && mainFormStatus.submitted ? 'solid 2px red' : ''}"
+              formControlName="lname" placeholder="Enter last name">
+              <div *ngIf="lname.errors?.required && mainFormStatus.submitted">
+                This field is required
+              </div>
+          </div>
+        </div>
+      </div>
+</form>
+
+<!-- <div *ngIf="mainForm.controls.name.errors && mainForm.controls.name.errors.required && (mainForm.controls.name.dirty || mainForm.controls.name.touched)">
+  This field is required
+</div>
+
+<div *ngIf="mainForm.controls.name.errors && mainForm.controls.name.errors.minlength && (mainForm.controls.name.dirty || mainForm.controls.name.touched)">
+  This field should have a minimum of 5 characters
+</div> -->
