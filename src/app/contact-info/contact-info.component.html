@@ -1,0 +1,26 @@
+<h4 class="ui dividing header">Contact Information</h4>
+<form [formGroup]="contactInfoForm">
+    <div class="field">
+        <label>Address</label>
+        <div class="two fields">
+          <div class="field">
+            <input type="text" 
+                   [ngStyle]="{'border': address.invalid && mainFormStatus.submitted ? 'solid 2px red' : ''}"
+                   formControlName="address" placeholder="Enter address">
+              <div *ngIf="address.errors?.required && mainFormStatus.submitted">
+                This field is required
+              </div>
+          </div>
+          
+          <div class="field">
+            <input type="text" 
+                   [ngStyle]="{'border': phone.invalid && mainFormStatus.submitted ? 'solid 2px red' : ''}"
+                   formControlName="phone" 
+                   placeholder="Enter phone number">
+            <div *ngIf="phone.errors && mainFormStatus.submitted">
+                   {{phone.errors.message}}
+            </div>
+          </div>
+        </div>
+      </div>
+</form>
