@@ -38,10 +38,19 @@
             <select formControlName="payment" 
                     [ngStyle]="{'border': courseForm.controls['payment'].invalid && form.submitted ? 'solid 2px red' : ''}"
                     placeholder="Select Payment option">
-              <option>Cash</option>
-              <option>Card</option>
+              <option value="Cash">Cash</option>
+              <option value="Card">Card</option>
             </select>
             <div *ngIf="courseForm.controls['payment'].errors && form.submitted">
+                               This field is required
+                        </div>
+          </div>
+
+          <div class="field">
+            <input type="text"
+              [ngStyle]="{'border': courseForm.controls['cardNumber'].invalid && form.submitted ? 'solid 2px red' : ''}"
+              formControlName="cardNumber" placeholder="Enter credit Card Number">
+            <div *ngIf="courseForm.controls['cardNumber'].errors && form.submitted">
                                This field is required
                         </div>
           </div>

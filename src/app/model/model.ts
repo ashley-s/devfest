@@ -12,6 +12,7 @@ export interface Course {
     courseId: string;
     courseName: string;
     payment: string;
+    cardNumber: string;
 }
 
 export interface Registration {
